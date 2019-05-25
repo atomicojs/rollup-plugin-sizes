@@ -1,0 +1,28 @@
+{
+	"name": "@atomico/rollup-plugin-sizes",
+	"version": "1.0.0",
+	"description": "This small utility allows you to monitor the size of the bundle",
+	"main": "index.js",
+	"source": "src/index.js",
+	"publishConfig": {
+		"access": "public"
+	},
+	"scripts": {
+		"build": "rollup -c ",
+		"prepare": "npm run build"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/atomicojs/rollup-plugin-sizes"
+	},
+	"keywords": [
+		"css",
+		"shadowDom",
+		"jsx"
+	],
+	"author": "Uppercod",
+	"license": "ISC",
+	"devDependencies": {
+		"rollup": "^1.12.1"
+	}
+}
