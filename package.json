@@ -1,6 +1,6 @@
 {
 	"name": "@atomico/rollup-plugin-sizes",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "This small utility allows you to monitor the size of the bundle",
 	"main": "index.js",
 	"source": "src/index.js",
@@ -27,6 +27,10 @@
 	},
 	"dependencies": {
 		"brotli-size": "^0.1.0",
-		"gzip-size": "^5.1.1"
+		"gzip-size": "^5.1.1",
+		"simple-string-table": "^1.0.0"
+	},
+	"peerDependencies": {
+		"rollup": "^1.x"
 	}
 }
