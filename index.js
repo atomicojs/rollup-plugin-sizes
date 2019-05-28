@@ -43,6 +43,7 @@ function sizes(limit) {
 			let index = 1;
 			for (let key in bundles) {
 				let code = bundles[key].code;
+				if (typeof code !== "string") continue;
 				let gzip = await getGzip(code);
 				let brotli = await getBrotli(code);
 				totalGzip += gzip;

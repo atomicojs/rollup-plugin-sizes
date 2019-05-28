@@ -1,6 +1,6 @@
 {
 	"name": "@atomico/rollup-plugin-sizes",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "This small utility allows you to monitor the size of the bundle",
 	"main": "index.js",
 	"source": "src/index.js",
@@ -16,9 +16,9 @@
 		"url": "https://github.com/atomicojs/rollup-plugin-sizes"
 	},
 	"keywords": [
-		"css",
-		"shadowDom",
-		"jsx"
+		"rollup-plugin",
+		"gzip",
+		"brotli"
 	],
 	"author": "Uppercod",
 	"license": "ISC",
