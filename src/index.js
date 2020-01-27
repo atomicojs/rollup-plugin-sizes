@@ -32,7 +32,7 @@ export default function sizes(limit) {
 	return {
 		name: "@atomico/rollup-plugin-sizes",
 		async writeBundle(bundles) {
-			let rows = [["FILES", "GZIP", "BROTLI"]];
+			let rows = [[bundles.length > 1 ? "FILES" : "FILE", "GZIP", "BROTLI"]];
 			let totalGzip = 0;
 			let totalBroli = 0;
 			let sizes = {};
@@ -48,7 +48,9 @@ export default function sizes(limit) {
 				rows.push([key, toKB(gzip), toKB(brotli)]);
 			}
 
-			rows.push(["", toKB(totalGzip), toKB(totalBroli)]);
+			if (bundles.length > 1) {
+				rows.push(["", toKB(totalGzip), toKB(totalBroli)]);
+			}
 			sizes[index] = totalGzip;
 
 			console.log(
