@@ -60,7 +60,6 @@ function sizes(limit, customLog) {
 
       sizes[index] = totalGzip;
 
-      console.log(rows);
       if (customLog) {
         customLog(rows);
       } else {
