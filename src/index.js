@@ -15,10 +15,10 @@ function toKB(size) {
 
 export default function sizes(limit, customLog) {
   if (limit) {
-    let danger = Number(("" + limit).replace(/kb/gi, "")) * 1000;
+    limit = limit * 1000;
     limit = {
-      danger,
-      warning: danger * 0.9,
+      danger: limit,
+      warning: limit * 0.9,
     };
   }
   function getColor(size) {
