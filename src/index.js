@@ -6,7 +6,7 @@ let color = {
   reset: "\x1b[0m",
   green: "\x1b[32m",
   yellow: "\x1b[33m",
-  red: "\x1b[31m"
+  red: "\x1b[31m",
 };
 
 function toKB(size) {
@@ -18,7 +18,7 @@ export default function sizes(limit, customLog) {
     let danger = Number(("" + limit).replace(/kb/gi, "")) * 1000;
     limit = {
       danger,
-      warning: danger * 0.9
+      warning: danger * 0.9,
     };
   }
   function getColor(size) {
@@ -31,12 +31,14 @@ export default function sizes(limit, customLog) {
   }
   return {
     name: "@atomico/rollup-plugin-sizes",
-    async writeBundle(bundles) {
-      let rows = [[bundles.length > 1 ? "FILES" : "FILE", "GZIP", "BROTLI"]];
+    async generateBundle(opts, bundles) {
+      let length = Object.keys(bundles).length;
+      let rows = [[length > 1 ? "FILES" : "FILE", "GZIP", "BROTLI"]];
       let totalGzip = 0;
       let totalBroli = 0;
       let sizes = {};
       let index = 1;
+
       for (let key in bundles) {
         let code = bundles[key].code;
         if (typeof code !== "string") continue;
@@ -48,7 +50,7 @@ export default function sizes(limit, customLog) {
         rows.push([key, toKB(gzip), toKB(brotli)]);
       }
 
-      if (bundles.length > 1) {
+      if (length > 1) {
         rows.push(["", toKB(totalGzip), toKB(totalBroli)]);
       }
 
@@ -71,6 +73,6 @@ export default function sizes(limit, customLog) {
             .join("\n")
         );
       }
-    }
+    },
   };
 }
