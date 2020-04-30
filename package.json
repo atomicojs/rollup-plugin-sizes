@@ -33,7 +33,7 @@
     "gzip-size": "^5.1.1"
   },
   "peerDependencies": {
-    "rollup": "^1.x"
+    "rollup": "1.x || 2.x"
   },
   "ava": {
     "files": [
